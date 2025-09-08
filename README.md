@@ -6,7 +6,7 @@ Exploratory analysis of global energy consumption using the [OWID dataset](https
 
 ---
 
-## 🔍 Project Objectives
+## Project Objectives
 - Explore global primary energy consumption from **1965 to 2022**  
 - Compare **fossil fuel vs renewable** energy consumption across countries  
 - Use multiple tools to highlight their strengths:
@@ -19,7 +19,7 @@ Exploratory analysis of global energy consumption using the [OWID dataset](https
 ---
 
 ```
-## 📂 Project Structure
+## Project Structure
 data/
 ├─ World Energy Consumption.csv
 ├─ Fossil_vs_Renew.csv
@@ -50,66 +50,67 @@ tableau/
 ---
 
 ## Step 1: Spreadsheet Exploration
-We begin with spreadsheets to quickly **plot trends and map geospatial data**.  
+We begin with spreadsheets to quickly plot trends and map geospatial data.  
 The dataset starts from **1965**, which is why our analysis uses this year as the baseline.  
 
 ### Example: Energy Consumption per Capita (1965–2022)
 <img src="spreadsheet/Energy per Capita.png" width="600"/>  
 
-This shows global energy consumption per capita rising steadily, reflecting both population growth and increased industrialization. However, growth is uneven across regions.
+This shows global energy consumption per capita rising steadily, reflecting our increasing needs for energy and increased industrialization. However, growth for renewable energy is uneven across regions and will be explained more on Tableau and R visualizations.
 
 ---
 
 ## Step 2: SQL Analysis
 SQL allows faster, more structured analysis.  
-We created new columns (e.g., **fossil share** and **renewable share**) and applied filters.  
+We created new columns (e.g., **fossil_pct** and **renew_pct**) for the percentages comparing fossil/renewables shares and applied filters.  
 For example, keeping only valid ISO codes allowed Tableau to correctly generate maps.  
 
-Key outputs:  
+SQL scripts:  
 - `Energy_Consumption_Percentage.sql` → country-level energy share  
 - `Energy_Consumption_Percentage_World.sql` → includes world totals  
 
 ---
 
-## 📍 Step 3: Tableau Interactive Dashboards
-Tableau was used for **interactive geospatial visualization**.  
-Unlike spreadsheets, it allows users to dynamically explore energy trends year by year.  
+## Step 3: Tableau Interactive Dashboards
+Tableau was used for interactive geospatial visualization.  
+Unlike spreadsheets, it allows users to dynamically explore energy trends year by year, you can access it by clicking the link below:
 
-👉 [View the Tableau Public Dashboard](https://public.tableau.com/views/EnergyOverYearOWIDEnergyConsumptionDataset/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+[View the Tableau Public Dashboard](https://public.tableau.com/views/EnergyOverYearOWIDEnergyConsumptionDataset/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 ### Example: 2022 Efficiency Map
 <img src="tableau/Tableau Example 2022.png" width="600"/>  
 
 This interactive view lets us adjust sliders to observe changes from **1965–2022**, giving richer insights into how renewables adoption spread globally.
+Keep in mind that the dataset is for **energy** not only electricity. For example, based from this [report](https://energy-information.canada.ca/en/energy-facts/clean-power-low-carbon-fuels), Canada generates 70% of their electricity from renewables energy, however from the visualization it appears as red due to our calculation for the overall energy not only electricity.
 
 ---
 
 ## 📈 Step 4: R (tidyverse) Advanced Analysis
-Finally, R provides **reproducibility** and advanced visualization.  
+Finally, R provides reproducibility and advanced visualization in one place. Rstudio will be used as it is the most popular IDE for R programming. 
 We used `dplyr` for transformations and `ggplot2` for visualizations.
 
 ### Plot 1: Fossil vs Renewable Share (1965–2022)
 <img src="r/Energy_Share.png" width="600"/>  
-Fossil fuels still dominate, but renewables show steady growth since the 2000s.
+Fossil energy still dominates, but renewables show steady growth since the 2000s. We still need to make effort for a greener energy and reducing fossil energy. We can also visualize which country uses the most fossil energy and renewable energy such as the plot below.
 
-### Plot 2: Top 10 Countries by Renewables-to-Fossil Ratio (2022)
-<img src="r/Best_Efficiency.png" width="600"/>  
-Although China leads in absolute renewable use, this ratio highlights smaller countries that are **more efficient in transitioning**.
-
-### Plot 3: Top Fossil vs Renewables Users
+### Plot 2: Fossil vs Renewables Users
 <img src="r/Top_Fossil.png" width="450"/> <img src="r/Top_Renewables.png" width="450"/>  
-A side-by-side comparison showing that the **largest consumers of renewables are also major fossil users**, underlining the importance of efficiency metrics.
+A side-by-side comparison showing that the largest consumers of renewables are also major fossil users, underlining the importance of efficiency metrics. Here, China uses the most for both fossil and renewable energy. We need a new metric for efficiency that compares fossil vs renewables in each country such as the plot below.
+
+### Plot 3: Top 10 Countries by Renewables-to-Fossil Ratio (2022)
+<img src="r/Best_Efficiency.png" width="600"/>  
+Although China leads in absolute renewable use, this ratio highlights smaller countries that are more efficient in transitioning such as Norway.
 
 ---
 
-## ✅ Key Insights
+## Key Insights
 - Fossil fuels remain dominant globally, but renewables are steadily growing.  
-- China, USA, and India lead fossil fuel usage, but also top renewables in absolute terms.  
+- Countries such as China, USA, and India lead fossil fuel usage, but also top renewables in absolute terms.  
 - Smaller countries (with higher renewables-to-fossil ratios) may serve as **better role models** for transition strategies.  
 
 ---
 
-## ⚙️ Tools Used
+## Tools Used
 - **Spreadsheets** → Initial exploration, quick trends, and static maps  
 - **SQL** → Data transformation, filtering, and percentage calculations  
 - **Tableau Public** → Interactive dashboards and geospatial insights  
@@ -117,5 +118,5 @@ A side-by-side comparison showing that the **largest consumers of renewables are
 
 ---
 
-## 📜 License
+## License
 This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
