@@ -52,19 +52,26 @@ tableau/
 
 ---
 
-## Sample Visualizations
+## 📊 Sample Visualizations
 
-To illustrate different perspectives, this project combines **R**, **Tableau**, and **Spreadsheets** for visualization:  
+### Plot 1 — Energy Consumption per Capita Trend (Spreadsheet)
+<img src="spreadsheet/Energy per Capita.png" alt="Energy per Capita Trend" width="600"/>
 
-- **Global Trend (Spreadsheet):** Shows how fossil fuels dominate historically, but renewables are starting to grow.  
-- **Geospatial View (Tableau):** Highlights country-level distribution of renewable adoption in 2022.  
-- **Efficiency Ratio (R):** Identifies countries with the best renewables-to-fossil ratio, showing relative efficiency in adopting clean energy.  
+This trend shows how global energy consumption per capita has changed over time. The steady increase reflects growing industrialization, urbanization, and higher living standards worldwide. However, the growth is uneven, with certain regions contributing disproportionately to the rise.  
 
-<p align="center">
-  <img src="spreadsheet/Energy Consumption Over Years.png" alt="Energy Trend" width="450"/>
-  <img src="tableau/Tableau Example 2022.png" alt="Geo Tableau" width="450"/>
-  <img src="r/Best_Efficiency.png" alt="Best Efficiency Ratio" width="450"/>
-</p>
+---
+
+### Plot 2 — Geospatial Renewables View (Tableau)
+<img src="tableau/Tableau Example 2022.png" alt="Geo Tableau" width="600"/>
+
+This Tableau visualization highlights the distribution of renewable energy adoption across countries in 2022. While China leads in absolute terms, other regions such as Europe show stronger proportional adoption. This provides insight into where renewable energy investment and policy efforts are most advanced.  
+
+---
+
+### Plot 3 — Renewables-to-Fossil Efficiency Ratio (R)
+<img src="r/Best_Efficiency.png" alt="Best Efficiency Ratio" width="600"/>
+
+This plot shows the top 10 countries ranked by the ratio of renewables to fossil energy usage in 2022. Smaller countries often appear near the top because their reliance on renewables is proportionally higher. This metric gives a fairer comparison of which nations are truly transitioning toward cleaner energy systems.  
 
 ---
 
