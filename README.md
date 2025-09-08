@@ -1,16 +1,29 @@
 # OWID Energy Consumption Exploratory Analysis
-"Multi-tool exploratory analysis of fossil vs renewable energy (1965-2022) using OWID dataset"
 
-Exploratory analysis of global energy consumption using the [OWID dataset](https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption), combining **SQL**, **Tableau**, **R**, and **Spreadsheets** to explore fossil vs renewable energy trends.
+**Multi-tool exploratory analysis of fossil vs renewable energy (1965–2022) using the OWID dataset.**
+
+Exploratory analysis of global energy consumption using the [OWID dataset](https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption), combining **Spreadsheets**, **SQL**, **Tableau**, and **R** to explore fossil vs renewable energy trends.
 
 ---
 
-## Project Structure
+## 🔍 Project Objectives
+- Explore global primary energy consumption from **1965 to 2022**  
+- Compare **fossil fuel vs renewable** energy consumption across countries  
+- Use multiple tools to highlight their strengths:
+  - *Spreadsheets* for quick exploration and geospatial visualization
+  - *SQL* for structured filtering and aggregation
+  - *Tableau* for interactive dashboards
+  - *R (tidyverse)* for reproducible analysis and advanced visualizations
+- Identify countries that are most **efficient at adopting renewables** relative to fossil fuels
+
+---
+
 ```
+## 📂 Project Structure
 data/
-├─ World Energy Consumption.csv # Raw dataset
-├─ Fossil_vs_Renew.csv # Processed for Tableau
-└─ Fossil_vs_Renew_World.csv # Processed for R (includes World)
+├─ World Energy Consumption.csv
+├─ Fossil_vs_Renew.csv
+└─ Fossil_vs_Renew_World.csv
 
 r/
 ├─ World_Energy_Consumption_Exploration_Analysis.R
@@ -36,44 +49,73 @@ tableau/
 
 ---
 
-## Insights
-- **Global trend (1965–2022):** Fossil fuels still dominate, but renewables are rising.
-- **Top fossil consumers:** China, USA, India continue to lead fossil energy use.
-- **Top renewable consumers:** China leads in absolute renewable energy, but ratio analysis shows smaller countries may be more efficient in renewables adoption.
-- **Renewables-to-Fossil ratio:** Provides a fairer view of which countries are truly transitioning to clean energy.
+## Step 1: Spreadsheet Exploration
+We begin with spreadsheets to quickly **plot trends and map geospatial data**.  
+The dataset starts from **1965**, which is why our analysis uses this year as the baseline.  
+
+### Example: Energy Consumption per Capita (1965–2022)
+<img src="spreadsheet/Energy per Capita.png" width="600"/>  
+
+This shows global energy consumption per capita rising steadily, reflecting both population growth and increased industrialization. However, growth is uneven across regions.
 
 ---
 
-##  Tools Used
-- **SQL** → Data aggregation and percentage share calculations  
-- **Spreadsheets** → Quick trend exploration & per-capita comparisons  
-- **R (tidyverse)** → Advanced visualizations and ratio analysis  
-- **Tableau Public** → Interactive geospatial & temporal dashboards  
+## Step 2: SQL Analysis
+SQL allows faster, more structured analysis.  
+We created new columns (e.g., **fossil share** and **renewable share**) and applied filters.  
+For example, keeping only valid ISO codes allowed Tableau to correctly generate maps.  
+
+Key outputs:  
+- `Energy_Consumption_Percentage.sql` → country-level energy share  
+- `Energy_Consumption_Percentage_World.sql` → includes world totals  
 
 ---
 
-## Sample Visualizations
-These are only samples of visualization of this project, more explanation and visualization will be available in *placeholder*.
-### Plot 1 — Energy Consumption per Capita Trend (Spreadsheet)
-<img src="spreadsheet/Energy per Capita.png" alt="Energy per Capita Trend" width="600"/>
+## 📍 Step 3: Tableau Interactive Dashboards
+Tableau was used for **interactive geospatial visualization**.  
+Unlike spreadsheets, it allows users to dynamically explore energy trends year by year.  
 
-This trend shows how global energy consumption per capita has changed over time. The steady increase reflects growing industrialization, urbanization, and higher living standards worldwide. However, the growth is uneven, with certain regions contributing disproportionately to the rise.  
+👉 [View the Tableau Public Dashboard](https://public.tableau.com/views/EnergyOverYearOWIDEnergyConsumptionDataset/Sheet1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
----
+### Example: 2022 Efficiency Map
+<img src="tableau/Tableau Example 2022.png" width="600"/>  
 
-### Plot 2 — Geospatial Renewables View (Tableau)
-<img src="tableau/Tableau Example 2022.png" alt="Geo Tableau" width="600"/>
-
-This Tableau visualization highlights the distribution of renewable energy adoption across countries in 2022. While China leads in absolute terms, other regions such as Europe show stronger proportional adoption. This provides insight into where renewable energy investment and policy efforts are most advanced.  
+This interactive view lets us adjust sliders to observe changes from **1965–2022**, giving richer insights into how renewables adoption spread globally.
 
 ---
 
-### Plot 3 — Renewables-to-Fossil Efficiency Ratio (R)
-<img src="r/Best_Efficiency.png" alt="Best Efficiency Ratio" width="600"/>
+## 📈 Step 4: R (tidyverse) Advanced Analysis
+Finally, R provides **reproducibility** and advanced visualization.  
+We used `dplyr` for transformations and `ggplot2` for visualizations.
 
-This plot shows the top 10 countries ranked by the ratio of renewables to fossil energy usage in 2022. Smaller countries often appear near the top because their reliance on renewables is proportionally higher. This metric gives a fairer comparison of which nations are truly transitioning toward cleaner energy systems.  
+### Plot 1: Fossil vs Renewable Share (1965–2022)
+<img src="r/Energy_Share.png" width="600"/>  
+Fossil fuels still dominate, but renewables show steady growth since the 2000s.
+
+### Plot 2: Top 10 Countries by Renewables-to-Fossil Ratio (2022)
+<img src="r/Best_Efficiency.png" width="600"/>  
+Although China leads in absolute renewable use, this ratio highlights smaller countries that are **more efficient in transitioning**.
+
+### Plot 3: Top Fossil vs Renewables Users
+<img src="r/Top_Fossil.png" width="450"/> <img src="r/Top_Renewables.png" width="450"/>  
+A side-by-side comparison showing that the **largest consumers of renewables are also major fossil users**, underlining the importance of efficiency metrics.
 
 ---
 
-## License
+## ✅ Key Insights
+- Fossil fuels remain dominant globally, but renewables are steadily growing.  
+- China, USA, and India lead fossil fuel usage, but also top renewables in absolute terms.  
+- Smaller countries (with higher renewables-to-fossil ratios) may serve as **better role models** for transition strategies.  
+
+---
+
+## ⚙️ Tools Used
+- **Spreadsheets** → Initial exploration, quick trends, and static maps  
+- **SQL** → Data transformation, filtering, and percentage calculations  
+- **Tableau Public** → Interactive dashboards and geospatial insights  
+- **R (tidyverse)** → Reproducible analysis, ratio metrics, and advanced plots  
+
+---
+
+## 📜 License
 This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
