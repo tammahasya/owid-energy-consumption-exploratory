@@ -1,5 +1,6 @@
 # OWID Energy Consumption Exploratory Analysis
 "Multi-tool exploratory analysis of fossil vs renewable energy (1965-2022) using OWID dataset"
+
 Exploratory analysis of global energy consumption using the [OWID dataset](https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption), combining **SQL**, **Tableau**, **R**, and **Spreadsheets** to explore fossil vs renewable energy trends.
 
 ---
@@ -52,17 +53,18 @@ tableau/
 ---
 
 ## Sample Visualizations
-![Global Energy Share](r/Energy_Share.png)
-*Fossil vs Renewable energy share worldwide (1965–2022)*
 
-![Top Fossil Users](r/Top_Fossil.png)
-*Top 10 countries by fossil energy usage in 2022*
+To illustrate different perspectives, this project combines **R**, **Tableau**, and **Spreadsheets** for visualization:  
 
-![Top Renewables Users](r/Top_Renewables.png)
-*Top 10 countries by renewables energy usage in 2022*
+- **Global Trend (Spreadsheet):** Shows how fossil fuels dominate historically, but renewables are starting to grow.  
+- **Geospatial View (Tableau):** Highlights country-level distribution of renewable adoption in 2022.  
+- **Efficiency Ratio (R):** Identifies countries with the best renewables-to-fossil ratio, showing relative efficiency in adopting clean energy.  
 
-![Efficiency Ratio](r/Best_Efficiency.png)
-*Top 10 countries by Renewables-to-Fossil ratio in 2022*
+<p align="center">
+  <img src="spreadsheet/Energy_Consumption_Over_Years.png" alt="Energy Trend" width="450"/>
+  <img src="tableau/Tableau Example 2022.png" alt="Geo Tableau" width="450"/>
+  <img src="r/Best_Efficiency.png" alt="Best Efficiency Ratio" width="450"/>
+</p>
 
 ---
 
