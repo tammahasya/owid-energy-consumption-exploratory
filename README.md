@@ -61,7 +61,7 @@ To illustrate different perspectives, this project combines **R**, **Tableau**, 
 - **Efficiency Ratio (R):** Identifies countries with the best renewables-to-fossil ratio, showing relative efficiency in adopting clean energy.  
 
 <p align="center">
-  <img src="spreadsheet/Energy_Consumption_Over_Years.png" alt="Energy Trend" width="450"/>
+  <img src="spreadsheet/Energy Consumption Over Years.png" alt="Energy Trend" width="450"/>
   <img src="tableau/Tableau Example 2022.png" alt="Geo Tableau" width="450"/>
   <img src="r/Best_Efficiency.png" alt="Best Efficiency Ratio" width="450"/>
 </p>
