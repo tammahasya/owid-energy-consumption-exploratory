@@ -52,8 +52,8 @@ tableau/
 
 ---
 
-## 📊 Sample Visualizations
-
+## Sample Visualizations
+These are only samples of visualization of this project, more explanation and visualization will be available in *placeholder*.
 ### Plot 1 — Energy Consumption per Capita Trend (Spreadsheet)
 <img src="spreadsheet/Energy per Capita.png" alt="Energy per Capita Trend" width="600"/>
 
