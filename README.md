@@ -117,7 +117,8 @@ From this analysis, we observe that:
   - Tableau
   - and R
 
-provides a thorough story from initial exploration to advanced analysis.
+All data can be found here:
+[Github](https://github.com/tammahasya/owid-energy-consumption-exploratory.git)
 
 ---
 
