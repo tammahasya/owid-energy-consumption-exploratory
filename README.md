@@ -1,4 +1,4 @@
-# OWID Energy Consumption Exploratory Analysis
+# OWID Energy Consumption Exploratory Analysis with Machine Learning Forecasting
 
 **Exploring Global Energy Trends (1965–2022) with Fossil vs Renewable Energy**
 
@@ -89,11 +89,11 @@ The models were trained on the global [Fossil_vs_Renew_World.csv](data/Fossil_vs
 We then forecasted energy shares **13 years ahead (to 2035)**.
 
 - **RNN Forecast**  
-  <img src="python/rnn_forecast.png" width="600"/>  
+  <img src="python/forecast_rnn.png" width="600"/>  
   Three RNN layers with 32 neurons each reproduced historical trends reasonably well, but the forward forecast under-predicted renewable growth, this might be due to the limited 56-year training window.
 
 - **LSTM Forecast**  
-  <img src="python/lstm_forecast.png" width="600"/>  
+  <img src="python/forecast_lstm.png" width="600"/>  
   A two-layer LSTM with 64 units captured the upward renewable trend more accurately.  
   It projects that by **2035** renewables could reach **≈ 37% of global primary energy** which is a great effort where a quarter of our total energy usage is using green energy. However, although LSTM is suitable for forecasting long into the future, the limited dataset is the bottleneck for this model.
 
