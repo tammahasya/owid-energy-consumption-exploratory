@@ -9,8 +9,9 @@ The analysis combines multiple tools:
 - SQL
 - Tableau Public
 - R
+- Python (Machine Learning)
 
-Providing a thorough view of our energy consumption patterns.
+Providing a thorough view of our energy consumption patterns and forecasting.
 
 ---
 
@@ -20,38 +21,8 @@ The goal of this project is to explore global primary energy consumption over th
 - Identify trends in energy consumption over time
 - Highlight countries leading in renewables adoption
 - Compare absolute consumption versus efficiency in transitioning to green energy
+- Forecast of fossil vs renewables in 2035
 - Demonstrate the strengths of different tools for exploratory analysis, interactive visualization, and reproducible metrics
-
----
-
-```
-## Project Structure
-data/
-├─ World Energy Consumption.csv
-├─ Fossil_vs_Renew.csv
-└─ Fossil_vs_Renew_World.csv
-
-r/
-├─ World_Energy_Consumption_Exploration_Analysis.R
-├─ Energy_Share.png
-├─ Top_Fossil.png
-├─ Top_Renewables.png
-└─ Best_Efficiency.png
-
-spreadsheet/
-├─ World_Energy_Consumption_Processed.csv
-├─ Energy Consumption Over Years.png
-├─ Energy Consumption per Capita 2020.png
-├─ Energy per Capita.png
-└─ Primary Energy Consumption 2020.png
-
-sql/
-├─ Energy_Consumption_Percentage.sql
-└─ Energy_Consumption_Percentage_World.sql
-
-tableau/
-└─ Tableau Example 2022.png
-```
 
 ---
 
@@ -106,16 +77,40 @@ Smaller countries with high ratios, such as Norway, demonstrate that efficient a
 
 ---
 
-## Key Insights
+## Step 4: Python Deep Learning Forecasting
+
+While R is excellent for data wrangling and statistical graphics, Python lets us apply **deep-learning models** to extend the analysis into the future.  
+Using `numpy`, `pandas`, `matplotlib`, `scikit-learn`, and `tensorflow/keras`, we built and trained two sequence models:
+
+- **Recurrent Neural Network (RNN)**: a simpler model that processes sequences but has limited memory.  
+- **Long Short-Term Memory (LSTM)**: an advanced RNN variant designed to capture longer-term temporal patterns.
+
+The models were trained on the global [Fossil_vs_Renew_World.csv](data/Fossil_vs_Renew_World.csv) data (1965–2022) after scaling with `MinMaxScaler` from scikit-learn.  
+We then forecasted energy shares **13 years ahead (to 2035)**.
+
+- **RNN Forecast**  
+  <img src="python/rnn_forecast.png" width="600"/>  
+  Three RNN layers with 32 neurons each reproduced historical trends reasonably well, but the forward forecast under-predicted renewable growth, this might be due to the limited 56-year training window.
+
+- **LSTM Forecast**  
+  <img src="python/lstm_forecast.png" width="600"/>  
+  A two-layer LSTM with 64 units captured the upward renewable trend more accurately.  
+  It projects that by **2035** renewables could reach **≈ 37% of global primary energy** which is a great effort where a quarter of our total energy usage is using green energy. However, although LSTM is suitable for forecasting long into the future, the limited dataset is the bottleneck for this model.
+
+Full training and plotting code is available in [`python/energy_forecast.py`](python/energy_forecast.py).
+
+---
+
+## Key Insights  
+
 From this analysis, we observe that:
-- Fossil fuels remain dominant globally, but renewables are steadily growing.  
-- Large countries may lead in absolute renewable energy use, but smaller countries often have higher efficiency in transitioning
-- Efficiency metrics like the renewables-to-fossil ratio help identify true leaders in sustainable energy adoption
-- Combining multiple tools:
-  - spreadsheets
-  - SQL
-  - Tableau
-  - and R
+
+* Fossil fuels remain dominant globally, but renewables are steadily growing.  
+* Large countries may lead in absolute renewable energy use, but smaller countries often achieve higher efficiency in transitioning.  
+* Efficiency metrics like the renewables-to-fossil ratio help identify true leaders in sustainable energy adoption.  
+* Machine-learning forecasts in Python (RNN & LSTM) reinforce the trend: even simple neural networks predict continued renewable growth and a gradual fossil-fuel decline through 2035.  
+* Combining multiple tools: spreadsheets, SQL, Tableau, **R**, and **Python deep learning**; provides a complete workflow from exploration to interactive visualization to forward-looking prediction.
+
 
 All data can be found here:
 [Github](https://github.com/tammahasya/owid-energy-consumption-exploratory.git)
@@ -126,7 +121,8 @@ All data can be found here:
 - **Spreadsheets** → Initial exploration, quick trends, and static maps  
 - **SQL** → Data transformation, filtering, and percentage calculations  
 - **Tableau Public** → Interactive dashboards and geospatial insights  
-- **R (tidyverse)** → Reproducible analysis, ratio metrics, and advanced plots  
+- **R (tidyverse)** → Reproducible analysis, ratio metrics, and advanced plots
+- **Python (Machine Learning)** → Forecasting the trend of fossil and renewables analysis into the future
 
 ---
 
